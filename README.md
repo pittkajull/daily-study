@@ -1,37 +1,81 @@
 # Technology Learning Hub
 
-Repository ini berisi materi edukasi teknologi yang dibuat otomatis satu lesson per hari.
+Materi pendek harian untuk mengenal dunia teknologi dan berbagai jalur karier di dalamnya. Setiap hari repository ini menerbitkan satu mini-lesson baru secara otomatis.
 
-Tujuannya adalah menyediakan bacaan singkat dan praktis untuk orang yang ingin mengenal berbagai jalur karier teknologi:
+## Topik yang Dicakup
 
-- Software Engineer
-- Hardware Engineer
-- Automation Engineer
-- AI Engineer
-- Designer
-- UI/UX Designer
+| Jalur | Materi |
+|---|---|
+| Software Engineer | Clean architecture, testing, maintainability |
+| Hardware Engineer | Microcontroller, digital logic, input/output |
+| Automation Engineer | Control loop, PLC, sensor, actuator |
+| AI Engineer | Machine learning, prompt engineering, model workflow |
+| Designer | Visual hierarchy, typography, design principles |
+| UI/UX Designer | User research, usability testing, interface thinking |
 
-Setiap lesson berisi penjelasan konsep, contoh sederhana, latihan, dan tautan referensi agar pembaca bisa melanjutkan belajar.
+## Isi Setiap Lesson
 
-## Struktur
+Setiap materi dibuat singkat agar mudah dipelajari dan dibagikan. Isinya mencakup:
 
-- `lessons/` — kumpulan materi dalam format Markdown.
-- `daily-study.ps1` — generator yang memilih dan menerbitkan satu materi baru setiap hari.
+- Penjelasan konsep
+- Contoh sederhana
+- Latihan mandiri
+- Referensi dokumentasi atau sumber belajar
 
-## Cara menjalankan
+## Contoh Materi
+
+Materi yang tersedia antara lain:
+
+- **Software Engineer:** cara membagi aplikasi dengan clean architecture
+- **Hardware Engineer:** cara kerja microcontroller dan gerbang logika
+- **Automation Engineer:** control loop dan PLC
+- **AI Engineer:** machine learning dan prompt engineering
+- **Designer:** visual hierarchy dan typography
+- **UI/UX Designer:** user research dan usability testing
+
+## Cara Menggunakan
+
+1. Buka folder [`lessons/`](lessons/).
+2. Pilih materi berdasarkan tanggal.
+3. Baca bagian penjelasan dan contoh.
+4. Kerjakan latihan mandirinya.
+5. Buka referensi untuk belajar lebih dalam.
+
+## Auto Update
+
+Materi baru dibuat oleh [`daily-study.ps1`](daily-study.ps1). Script ini:
+
+1. Memilih mini-lesson teknologi berdasarkan tanggal.
+2. Membuat file Markdown baru di folder `lessons/`.
+3. Melakukan commit.
+4. Melakukan push ke branch `main`.
+
+Di Windows, jalankan otomatis menggunakan **Task Scheduler** dengan trigger `When I log on`.
+
+### Menjalankan manual
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\daily-study.ps1
 ```
 
-Script membuat file baru berdasarkan tanggal, lalu melakukan commit dan push ke branch `main`. Materi tidak memakai API berbayar; daftar lesson tersimpan di dalam script.
+## Struktur Repository
 
-## Otomatis setiap hari
+```text
+technology-learning-hub/
+├── daily-study.ps1       # Generator dan auto-publisher lesson
+├── lessons/              # Materi edukasi dalam format Markdown
+│   ├── 2026-07-27.md
+│   ├── 2026-07-28.md
+│   └── ...
+└── README.md             # Dokumentasi repository
+```
 
-Gunakan Windows Task Scheduler dengan action berikut:
+## Tujuan
 
-- Program: `powershell.exe`
-- Arguments: `-ExecutionPolicy Bypass -File "C:\path\ke\daily-study-bot\daily-study.ps1"`
-- Trigger: `When I log on`
+Repository ini dibuat sebagai perpustakaan belajar terbuka untuk siswa, pemula, dan siapa saja yang ingin memahami dasar berbagai bidang teknologi secara bertahap.
 
-Repo ini dimaksudkan sebagai perpustakaan belajar terbuka yang bisa dibaca, dikembangkan, dan dikoreksi bersama.
+Materi di sini bersifat pengantar. Gunakan referensi yang tercantum untuk eksplorasi lebih lanjut dan jangan ragu membuka pull request untuk memperbaiki atau menambah materi.
+
+## License
+
+Materi di repository ini dapat digunakan untuk belajar dan dibagikan dengan tetap mencantumkan sumbernya.
