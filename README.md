@@ -74,7 +74,7 @@ technology-learning-hub/
 
 Repository ini dibuat sebagai perpustakaan belajar terbuka untuk siswa, pemula, dan siapa saja yang ingin memahami dasar berbagai bidang teknologi secara bertahap.
 
-Materi di sini bersifat pengantar. Gunakan referensi yang tercantum untuk eksplorasi lebih lanjut dan jangan ragu membuka pull request untuk memperbaiki atau menambah materi.
+Generator saat ini menyediakan 365 kombinasi lesson per tahun dari topik inti dan berbagai sudut pembahasan, seperti konsep dasar, best practice, keamanan, testing, studi kasus, dan latihan. Materi di sini bersifat pengantar. Gunakan referensi yang tercantum untuk eksplorasi lebih lanjut dan jangan ragu membuka pull request untuk memperbaiki atau menambah materi.
 
 ## License
 

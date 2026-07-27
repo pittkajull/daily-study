@@ -16,9 +16,27 @@ $lessons = @(
     @{ Topic = "UI/UX: usability testing"; What = "Usability testing mengamati pengguna menyelesaikan tugas untuk menemukan bagian interface yang membingungkan."; Example = "Minta pengguna mencari dan membeli produk tanpa memberi tahu tombol mana yang harus ditekan."; Task = "Tulis tiga task test untuk aplikasi mobile."; Ref = "https://www.nngroup.com/articles/usability-testing-101/" }
 )
 
+$perspectives = @(
+    "konsep dasar", "istilah penting", "cara kerja", "contoh pemula", "contoh di proyek nyata",
+    "best practice", "kesalahan umum", "cara memilih pendekatan", "trade-off", "debugging",
+    "testing", "keamanan", "performa", "maintainability", "dokumentasi", "kolaborasi tim",
+    "studi kasus", "workflow", "tools yang umum dipakai", "checklist implementasi", "latihan bertahap",
+    "pertanyaan interview", "perbandingan alternatif", "integrasi dengan sistem lain", "monitoring",
+    "scalability", "accessibility", "reliability", "problem solving", "portofolio", "roadmap lanjutan"
+)
+
 $date = Get-Date
 $dateText = $date.ToString("yyyy-MM-dd")
-$lesson = $lessons[($date.DayOfYear - 1) % $lessons.Count]
+$dayIndex = $date.DayOfYear - 1
+$base = $lessons[$dayIndex % $lessons.Count]
+$perspective = $perspectives[[math]::Floor($dayIndex / $lessons.Count) % $perspectives.Count]
+$lesson = [pscustomobject]@{
+    Topic = "$($base.Topic) - $perspective"
+    What = "$($base.What) Hari ini fokus pembahasannya adalah $perspective. Hubungkan konsep ini dengan kebutuhan pengguna dan kondisi proyek nyata."
+    Example = $base.Example
+    Task = "$($base.Task) Tambahkan satu catatan khusus tentang $perspective."
+    Ref = $base.Ref
+}
 $folder = Join-Path $PSScriptRoot "lessons"
 $file = Join-Path $folder "$dateText.md"
 New-Item -ItemType Directory -Force -Path $folder | Out-Null
