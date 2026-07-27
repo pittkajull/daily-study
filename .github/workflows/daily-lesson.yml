@@ -1,0 +1,24 @@
+name: Publish daily technology brief
+
+on:
+  schedule:
+    - cron: "0 12 * * *" # 19:00 WIB
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate lesson from official RSS feeds
+        run: python generate.py
+      - name: Commit lesson
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lessons .cache
+          git diff --cached --quiet || git commit -m "lesson: daily technology brief"
+          git push

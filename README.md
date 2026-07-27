@@ -1,81 +1,67 @@
 # Technology Learning Hub
 
-Materi pendek harian untuk mengenal dunia teknologi dan berbagai jalur karier di dalamnya. Setiap hari repository ini menerbitkan satu mini-lesson baru secara otomatis.
+Materi pendek harian untuk mengenal dunia teknologi dan berbagai jalur karier di dalamnya. Setiap hari repository ini menerbitkan satu technology brief baru dari RSS resmi sumber teknologi.
 
 ## Topik yang Dicakup
 
 | Jalur | Materi |
 |---|---|
-| Software Engineer | Clean architecture, testing, maintainability |
+| Software Engineer | Architecture, Python, testing, maintainability |
 | Hardware Engineer | Microcontroller, digital logic, input/output |
 | Automation Engineer | Control loop, PLC, sensor, actuator |
-| AI Engineer | Machine learning, prompt engineering, model workflow |
+| AI Engineer | Machine learning, PyTorch, prompt engineering |
 | Designer | Visual hierarchy, typography, design principles |
 | UI/UX Designer | User research, usability testing, interface thinking |
 
 ## Isi Setiap Lesson
 
-Setiap materi dibuat singkat agar mudah dipelajari dan dibagikan. Isinya mencakup:
-
 - Penjelasan konsep
-- Contoh sederhana
+- Ringkasan pendek dari sumber asli
+- Contoh atau konteks penerapan
 - Latihan mandiri
-- Referensi dokumentasi atau sumber belajar
-
-## Contoh Materi
-
-Materi yang tersedia antara lain:
-
-- **Software Engineer:** cara membagi aplikasi dengan clean architecture
-- **Hardware Engineer:** cara kerja microcontroller dan gerbang logika
-- **Automation Engineer:** control loop dan PLC
-- **AI Engineer:** machine learning dan prompt engineering
-- **Designer:** visual hierarchy dan typography
-- **UI/UX Designer:** user research dan usability testing
+- Link referensi lengkap
 
 ## Cara Menggunakan
 
 1. Buka folder [`lessons/`](lessons/).
 2. Pilih materi berdasarkan tanggal.
-3. Baca bagian penjelasan dan contoh.
+3. Baca ringkasan dan buka sumber aslinya.
 4. Kerjakan latihan mandirinya.
-5. Buka referensi untuk belajar lebih dalam.
 
 ## Auto Update
 
-Materi baru dibuat oleh [`daily-study.ps1`](daily-study.ps1). Script ini:
+[`generate.py`](generate.py) membaca RSS resmi dari sumber teknologi, memilih link yang belum pernah digunakan, lalu membuat file Markdown baru. GitHub Actions menjalankannya setiap hari pukul 19:00 WIB melalui [workflow](.github/workflows/daily-lesson.yml).
 
-1. Memilih mini-lesson teknologi berdasarkan tanggal.
-2. Membuat file Markdown baru di folder `lessons/`.
-3. Melakukan commit.
-4. Melakukan push ke branch `main`.
-
-Di Windows, jalankan otomatis menggunakan **Task Scheduler** dengan trigger `When I log on`.
+```text
+RSS resmi -> filter duplikat -> lesson Markdown -> commit -> push
+```
 
 ### Menjalankan manual
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\daily-study.ps1
+python .\generate.py
 ```
 
 ## Struktur Repository
 
 ```text
 technology-learning-hub/
-├── daily-study.ps1       # Generator dan auto-publisher lesson
-├── lessons/              # Materi edukasi dalam format Markdown
+├── .github/workflows/daily-lesson.yml  # Automation harian
+├── generate.py                          # RSS reader dan generator
+├── lessons/                             # Materi dalam format Markdown
 │   ├── 2026-07-27.md
-│   ├── 2026-07-28.md
 │   └── ...
-└── README.md             # Dokumentasi repository
+└── README.md                            # Dokumentasi repository
 ```
+
+## Sumber dan Etika
+
+Feed dibatasi ke sumber teknologi resmi dan publik. Script hanya menyimpan metadata RSS, ringkasan pendek, atribusi, dan link sumber asli—bukan menyalin artikel penuh. Rate limit, robots.txt, hak cipta, dan permintaan takedown harus selalu dihormati.
 
 ## Tujuan
 
-Repository ini dibuat sebagai perpustakaan belajar terbuka untuk siswa, pemula, dan siapa saja yang ingin memahami dasar berbagai bidang teknologi secara bertahap.
-
-Generator saat ini menyediakan 365 kombinasi lesson per tahun dari topik inti dan berbagai sudut pembahasan, seperti konsep dasar, best practice, keamanan, testing, studi kasus, dan latihan. Materi di sini bersifat pengantar. Gunakan referensi yang tercantum untuk eksplorasi lebih lanjut dan jangan ragu membuka pull request untuk memperbaiki atau menambah materi.
+Repository ini adalah perpustakaan belajar terbuka untuk siswa, pemula, dan siapa saja yang ingin memahami teknologi secara bertahap. Pull request untuk memperbaiki atau menambah materi sangat dipersilakan.
 
 ## License
 
-Materi di repository ini dapat digunakan untuk belajar dan dibagikan dengan tetap mencantumkan sumbernya.
+Materi di repository ini dapat digunakan untuk belajar dengan tetap mencantumkan sumber aslinya.
