@@ -75,6 +75,45 @@ DEEP_THEORY = {
     },
 }
 
+PRACTICE = {
+    "Software Engineer": {
+        "analogy": "Bayangkan aplikasi seperti restoran: UI adalah pelayan, service adalah dapur, dan database adalah gudang. Memisahkan tanggung jawab membuat perubahan menu tidak merusak gudang.",
+        "steps": "1. Buat file fungsi dan definisikan input yang dibutuhkan.\n2. Tulis satu aturan bisnis paling kecil.\n3. Jalankan dengan data normal.\n4. Tambahkan test untuk data kosong dan data salah.\n5. Refactor jika satu fungsi mulai mengerjakan terlalu banyak hal.",
+        "result": "Program harus menghasilkan total yang benar untuk data valid dan menolak input yang tidak masuk akal dengan error yang jelas.",
+        "check": "Jelaskan bagian mana yang merupakan aturan bisnis dan mengapa bagian itu bisa dites tanpa database atau halaman web.",
+    },
+    "Hardware Engineer": {
+        "analogy": "Sensor seperti mata, microcontroller seperti otak, dan actuator seperti tangan. Ketiganya harus memakai tegangan dan bahasa sinyal yang kompatibel.",
+        "steps": "1. Baca datasheet setiap komponen.\n2. Gambar jalur VCC, GND, input, dan output.\n3. Uji sensor tanpa actuator.\n4. Tampilkan nilai sensor lewat serial monitor.\n5. Aktifkan actuator hanya setelah nilai tervalidasi.",
+        "result": "LED atau motor hanya aktif ketika kondisi sensor benar dan tetap aman ketika kabel sensor dilepas.",
+        "check": "Sebutkan apa yang terjadi jika ground terputus atau sensor mengirim nilai di luar rentang.",
+    },
+    "Automation Engineer": {
+        "analogy": "Thermostat seperti seseorang yang terus melihat termometer, membandingkan suhu dengan target, lalu menyalakan atau mematikan pemanas.",
+        "steps": "1. Tentukan target dan batas aman.\n2. Baca sensor secara berkala.\n3. Hitung selisih nilai aktual dengan target.\n4. Pilih aksi berdasarkan state sistem.\n5. Tambahkan alarm dan mode manual ketika sensor gagal.",
+        "result": "Sistem bergerak menuju target tanpa hidup-mati terlalu cepat dan masuk ke kondisi aman saat input tidak valid.",
+        "check": "Jelaskan mengapa tolerance atau hysteresis diperlukan pada control loop sederhana.",
+    },
+    "AI Engineer": {
+        "analogy": "Training model seperti mengajar siswa dengan contoh. Data train adalah materi latihan, validation membantu memilih cara belajar, dan test adalah ujian terakhir.",
+        "steps": "1. Tulis definisi masalah dan target.\n2. Bersihkan dan periksa kualitas data.\n3. Pisahkan train dan test sebelum tuning.\n4. Latih baseline sederhana.\n5. Analisis contoh yang salah, bukan hanya angka akurasi.",
+        "result": "Kamu dapat menjelaskan data yang dipakai, alasan memilih metrik, contoh prediksi salah, dan batasan model.",
+        "check": "Jelaskan apa itu data leakage dan beri satu contoh bagaimana hal itu bisa terjadi.",
+    },
+    "Designer": {
+        "analogy": "Mendesain halaman seperti menyusun papan pengumuman: judul harus terlihat dulu, informasi penting berikutnya, lalu instruksi tindakan.",
+        "steps": "1. Tulis tujuan halaman dalam satu kalimat.\n2. Kelompokkan konten berdasarkan kepentingan.\n3. Susun grid dan alignment.\n4. Pilih ukuran dan weight typography.\n5. Uji desain dengan orang yang belum melihatnya.",
+        "result": "Orang lain dapat menyebutkan informasi utama dan tindakan berikutnya tanpa penjelasan dari designer.",
+        "check": "Tunjukkan elemen dengan prioritas tertinggi, sedang, dan rendah pada desainmu.",
+    },
+    "UI/UX Designer": {
+        "analogy": "UX seperti merancang rute perjalanan: pengguna harus tahu tujuan, jalan berikutnya, dan cara kembali ketika salah arah.",
+        "steps": "1. Tentukan siapa pengguna dan task-nya.\n2. Tulis langkah ideal dari awal sampai selesai.\n3. Buat wireframe tanpa dekorasi.\n4. Uji task dengan pengguna.\n5. Catat kebingungan, error, dan waktu lalu iterasi.",
+        "result": "Mayoritas pengguna menyelesaikan task tanpa bantuan dan kamu memiliki bukti bagian mana yang perlu diperbaiki.",
+        "check": "Bedakan opini pengguna tentang warna dengan bukti bahwa alur task memang sulit digunakan.",
+    },
+}
+
 
 def clean(value: str, limit: int = 600) -> str:
     value = html.unescape(re.sub(r"<[^>]+>", " ", value or ""))
@@ -126,15 +165,19 @@ def main() -> None:
     output = LESSONS / f"{today}.md"
     guide = GUIDES.get(fresh["category"], GUIDES["Software Engineer"])
     deep = DEEP_THEORY.get(fresh["category"], DEEP_THEORY["Software Engineer"])
+    practice = PRACTICE.get(fresh["category"], PRACTICE["Software Engineer"])
     output.write_text(
         f"# {fresh['title']}\n\n**Kategori:** {fresh['category']}  \n**Difficulty:** {guide['level']}  \n**Date:** {today}\n\n"
         f"## Tujuan Belajar\n\n{deep['goals']}\n\n## Prasyarat\n\n{deep['prereq']}\n\n"
         f"## Teori: Apa yang Dipelajari?\n\n{deep['theory']}\n\n"
         f"## Kenapa Ini Penting?\n\n{guide['why']}\n\n"
+        f"## Gambaran Sederhana\n\n{practice['analogy']}\n\n"
         f"## Ringkasan Bacaan Terbaru\n\n{fresh['summary'] or 'Baca sumber asli untuk konteks terbaru.'}\n\n"
-        f"## Contoh Praktik\n\n```text\n{guide['code']}\n```\n\n{deep['walkthrough']}\n\n"
+        f"## Contoh Praktik\n\n```text\n{guide['code']}\n```\n\n**Cara membacanya:** {deep['walkthrough']}\n\n"
+        f"## Praktik Langkah demi Langkah\n\n{practice['steps']}\n\n"
+        f"### Hasil yang Diharapkan\n\n{practice['result']}\n\n"
         f"## Best Practices\n\n{guide['best']}\n\n## Kesalahan Umum\n\n{guide['pitfalls']}\n\n"
-        f"## Latihan Mandiri\n\n{guide['exercise']}\n\n## Sumber Belajar\n\n- [Bacaan terbaru dari sumber asli]({fresh['link']})\n",
+        f"## Latihan Mandiri\n\n{guide['exercise']}\n\n### Cek Pemahaman\n\n{practice['check']}\n\n## Sumber Belajar\n\n- [Bacaan terbaru dari sumber asli]({fresh['link']})\n",
         encoding="utf-8",
     )
     seen.add(fresh["link"])
