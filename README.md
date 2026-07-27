@@ -1,6 +1,6 @@
-# Daily Study Bot
+# Daily Technology Lessons
 
-Script PowerShell ini membuat satu jurnal belajar per hari, lalu commit dan push ke GitHub.
+Script PowerShell ini membuat satu mini-lesson edukasi teknologi per hari, lalu commit dan push ke GitHub. Materinya mencakup Git, Python, JavaScript, Web, Database, Linux, Cybersecurity, Testing, dan DevOps.
 
 ## Setup pertama kali
 
@@ -30,4 +30,3 @@ Pastikan `git push` sudah bisa berjalan tanpa meminta login setiap kali, misalny
 ```
 
 Script memilih materi berdasarkan hari dalam tahun, jadi materi berganti otomatis tanpa perlu mengedit file setiap hari.
-
