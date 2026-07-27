@@ -19,7 +19,7 @@ $lessons = @(
 $date = Get-Date
 $dateText = $date.ToString("yyyy-MM-dd")
 $lesson = $lessons[($date.DayOfYear - 1) % $lessons.Count]
-$folder = Join-Path $PSScriptRoot "daily-study"
+$folder = Join-Path $PSScriptRoot "lessons"
 $file = Join-Path $folder "$dateText.md"
 New-Item -ItemType Directory -Force -Path $folder | Out-Null
 

@@ -1,32 +1,37 @@
-# Daily Technology Lessons
+# Technology Learning Hub
 
-Script PowerShell ini membuat satu mini-lesson edukasi teknologi per hari, lalu commit dan push ke GitHub. Materinya mencakup Git, Python, JavaScript, Web, Database, Linux, Cybersecurity, Testing, dan DevOps.
+Repository ini berisi materi edukasi teknologi yang dibuat otomatis satu lesson per hari.
 
-## Setup pertama kali
+Tujuannya adalah menyediakan bacaan singkat dan praktis untuk orang yang ingin mengenal berbagai jalur karier teknologi:
+
+- Software Engineer
+- Hardware Engineer
+- Automation Engineer
+- AI Engineer
+- Designer
+- UI/UX Designer
+
+Setiap lesson berisi penjelasan konsep, contoh sederhana, latihan, dan tautan referensi agar pembaca bisa melanjutkan belajar.
+
+## Struktur
+
+- `lessons/` — kumpulan materi dalam format Markdown.
+- `daily-study.ps1` — generator yang memilih dan menerbitkan satu materi baru setiap hari.
+
+## Cara menjalankan
 
 ```powershell
-cd C:\path\ke\daily-study-bot
-git init
-git add .
-git commit -m "chore: initial setup"
-git branch -M main
-git remote add origin https://github.com/USERNAME/NAMA-REPO.git
-git push -u origin main
+powershell -ExecutionPolicy Bypass -File .\daily-study.ps1
 ```
 
-Pastikan `git push` sudah bisa berjalan tanpa meminta login setiap kali, misalnya memakai GitHub Desktop atau SSH.
+Script membuat file baru berdasarkan tanggal, lalu melakukan commit dan push ke branch `main`. Materi tidak memakai API berbayar; daftar lesson tersimpan di dalam script.
 
-## Menjalankan otomatis saat login Windows
+## Otomatis setiap hari
 
-1. Buka **Task Scheduler** dan pilih **Create Basic Task**.
-2. Nama task: `Daily GitHub Study`.
-3. Trigger: **When I log on**.
-4. Action: **Start a program**.
-5. Program: `powershell.exe`.
-6. Arguments:
+Gunakan Windows Task Scheduler dengan action berikut:
 
-```text
--ExecutionPolicy Bypass -File "C:\path\ke\daily-study-bot\daily-study.ps1"
-```
+- Program: `powershell.exe`
+- Arguments: `-ExecutionPolicy Bypass -File "C:\path\ke\daily-study-bot\daily-study.ps1"`
+- Trigger: `When I log on`
 
-Script memilih materi berdasarkan hari dalam tahun, jadi materi berganti otomatis tanpa perlu mengedit file setiap hari.
+Repo ini dimaksudkan sebagai perpustakaan belajar terbuka yang bisa dibaca, dikembangkan, dan dikoreksi bersama.
