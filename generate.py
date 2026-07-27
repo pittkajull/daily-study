@@ -96,7 +96,11 @@ def read_feed(category: str, url: str) -> list[dict[str, str]]:
         title = clean(values.get("title").text if values.get("title") is not None else "", 160)
         link_node = values.get("link")
         link = (link_node.attrib.get("href") if link_node is not None else None) or (link_node.text if link_node is not None else "")
-        summary_node = values.get("description") or values.get("summary") or values.get("content")
+        summary_node = values.get("description")
+        if summary_node is None:
+            summary_node = values.get("summary")
+        if summary_node is None:
+            summary_node = values.get("content")
         summary = clean(summary_node.text if summary_node is not None else "")
         if title and link:
             entries.append({"category": category, "title": title, "link": link.strip(), "summary": summary})
