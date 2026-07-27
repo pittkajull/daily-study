@@ -36,6 +36,45 @@ GUIDES = {
     "UI/UX Designer": {"level": "Beginner to Intermediate", "theory": "UI/UX menggabungkan interface dengan riset, kebutuhan pengguna, alur tugas, dan usability testing.", "why": "Interface cantik belum tentu mudah digunakan; keputusan perlu divalidasi dengan perilaku pengguna.", "code": "User task: Cari produk dan tambahkan ke keranjang\nSuccess: selesai tanpa bantuan\nMeasure: waktu, error, dan pertanyaan", "best": "Riset, buat prototype murah, uji dengan pengguna, lalu iterasi.", "pitfalls": "Mengandalkan asumsi dan menguji hanya dengan sesama designer.", "exercise": "Buat tiga task usability untuk aplikasi pencatat keuangan."},
 }
 
+DEEP_THEORY = {
+    "Software Engineer": {
+        "goals": "Setelah membaca, pembaca memahami siklus hidup software, pemisahan tanggung jawab, dan alasan engineering practices diperlukan.",
+        "prereq": "Bisa membaca kode dasar dan memahami variabel, fungsi, serta input-output.",
+        "theory": "Software engineering bukan sekadar menulis kode yang bisa berjalan. Ia adalah disiplin untuk mengubah kebutuhan pengguna menjadi sistem yang dapat diandalkan, diuji, dipantau, dan dipelihara. Kode akan dibaca jauh lebih sering daripada ditulis, sehingga struktur dan keputusan desain sama pentingnya dengan hasil akhirnya.\n\nDalam proyek nyata, kebutuhan berubah, anggota tim berganti, dan jumlah pengguna bertambah. Karena itu engineer memakai version control, code review, automated testing, dokumentasi, logging, dan arsitektur yang memisahkan aturan bisnis dari detail teknis. Tujuannya bukan membuat kode paling rumit, melainkan mengurangi biaya perubahan dan risiko kerusakan.",
+        "walkthrough": "Fungsi calculate_total menerima daftar item, menghitung harga dikali jumlah untuk setiap item, lalu menjumlahkan seluruh hasil. Aturan bisnis ini sebaiknya tidak bergantung pada database atau tampilan agar dapat diuji secara mandiri. Setelah itu tambahkan test untuk daftar kosong, satu item, diskon, dan jumlah yang tidak valid.",
+    },
+    "Hardware Engineer": {
+        "goals": "Memahami hubungan sensor, pemrosesan, dan actuator serta batasan listrik dasar.",
+        "prereq": "Memahami konsep tegangan, arus, ground, dan logika 0/1.",
+        "theory": "Hardware engineering menghubungkan dunia fisik dengan sistem komputasi. Sensor mengubah kondisi fisik menjadi sinyal, microcontroller memproses sinyal berdasarkan program, lalu actuator melakukan aksi. Setiap komponen memiliki batas tegangan, arus, suhu, dan timing yang harus dihormati.\n\nBerbeda dari software, bug hardware dapat merusak komponen secara permanen. Engineer membaca datasheet, membuat skematik, menguji dengan multimeter atau oscilloscope, dan merancang kondisi aman ketika sensor gagal atau listrik terputus.",
+        "walkthrough": "Pada contoh LED, sensorPin adalah input dan ledPin adalah output. Program membaca level logika sensor lalu menyalin nilainya ke LED. Dalam perangkat nyata, tambahkan resistor, debounce untuk tombol, dan validasi agar sinyal noise tidak menyalakan actuator secara salah.",
+    },
+    "Automation Engineer": {
+        "goals": "Memahami control loop, state machine, sensor, actuator, dan fail-safe.",
+        "prereq": "Memahami diagram alur dan konsep input-output.",
+        "theory": "Automation engineering merancang sistem yang mengamati kondisi melalui sensor, mengambil keputusan melalui controller, dan mengubah dunia fisik melalui actuator. Control loop membandingkan nilai aktual dengan target; selisihnya disebut error dan dipakai untuk menentukan aksi berikutnya.\n\nSistem industri harus tetap aman ketika sensor rusak, jaringan putus, atau operator melakukan kesalahan. Karena itu desain automation membutuhkan interlock, alarm, emergency stop, manual override, logging, dan prosedur recovery yang jelas.",
+        "walkthrough": "Pada thermostat sederhana, heater menyala ketika suhu berada di bawah target dikurangi tolerance dan mati ketika melewati target ditambah tolerance. Tolerance mencegah heater hidup-mati terlalu cepat. Sistem produksi biasanya memakai PID, state machine, dan sensor redundancy untuk hasil yang lebih stabil.",
+    },
+    "AI Engineer": {
+        "goals": "Memahami alur data, training, evaluasi, deployment, dan risiko model machine learning.",
+        "prereq": "Memahami Python dasar, tabel data, dan konsep train-test split.",
+        "theory": "AI engineering mencakup lebih dari memilih model. Pekerjaan dimulai dari mendefinisikan masalah dan target, mengumpulkan data yang representatif, membersihkan data, membuat baseline, melatih model, mengevaluasi error, lalu mengintegrasikannya ke produk.\n\nModel dapat terlihat akurat tetapi gagal pada data dunia nyata karena data leakage, bias, distribution shift, atau metrik yang salah. Engineer harus menyimpan versi dataset dan model, memantau performa setelah deployment, serta menyediakan fallback ketika prediksi tidak yakin.",
+        "walkthrough": "Data dibagi menjadi train dan test agar evaluasi dilakukan pada contoh yang belum pernah dilihat model. Model belajar dari train, kemudian prediksinya dibandingkan dengan label pada test. Jangan mengubah test set untuk tuning berulang karena hasilnya tidak lagi merepresentasikan performa nyata.",
+    },
+    "Designer": {
+        "goals": "Memahami bagaimana hierarki visual, typography, layout, dan warna menyampaikan informasi.",
+        "prereq": "Bisa mengamati interface dan menjelaskan tujuan sebuah elemen visual.",
+        "theory": "Designer memecahkan masalah komunikasi melalui bentuk, ruang, warna, tipografi, dan komposisi. Sebelum memilih gaya visual, designer perlu memahami tujuan bisnis, informasi yang harus disampaikan, konteks penggunaan, dan keterbatasan media.\n\nVisual hierarchy menentukan urutan perhatian pengguna. Ukuran, kontras, whitespace, alignment, dan posisi membuat pembaca tahu mana judul, informasi utama, dan tindakan berikutnya. Sistem desain membantu keputusan ini konsisten di banyak halaman dan perangkat.",
+        "walkthrough": "Pada .card-title, ukuran dan weight membuat judul lebih menonjol. Dalam praktik, cek juga line-height, panjang teks, kontras warna, dan perilakunya pada layar kecil. Style yang bagus harus tetap terbaca ketika konten berubah.",
+    },
+    "UI/UX Designer": {
+        "goals": "Memahami perbedaan UI dan UX serta cara memvalidasi desain dengan riset dan usability testing.",
+        "prereq": "Bisa menjelaskan siapa pengguna dan tujuan utama sebuah produk.",
+        "theory": "UX berfokus pada keseluruhan pengalaman pengguna: masalah apa yang ingin diselesaikan, langkah yang harus ditempuh, dan apakah hasilnya memuaskan. UI adalah bagian visual dan interaktif yang memungkinkan pengalaman itu terjadi. UI yang indah tidak otomatis berarti UX yang baik.\n\nProses yang sehat dimulai dari riset, perumusan problem, user flow, wireframe, prototype, usability test, lalu iterasi. Pengujian bukan meminta pengguna memuji desain, tetapi mengamati apakah mereka dapat menyelesaikan task, di mana mereka ragu, dan kesalahan apa yang muncul.",
+        "walkthrough": "Task 'cari produk dan tambahkan ke keranjang' memiliki tujuan dan kriteria sukses yang jelas. Catat waktu penyelesaian, jumlah error, dan pertanyaan pengguna. Data ini lebih berguna daripada sekadar bertanya apakah mereka menyukai warna tombol.",
+    },
+}
+
 
 def clean(value: str, limit: int = 600) -> str:
     value = html.unescape(re.sub(r"<[^>]+>", " ", value or ""))
@@ -82,12 +121,14 @@ def main() -> None:
     LESSONS.mkdir(exist_ok=True)
     output = LESSONS / f"{today}.md"
     guide = GUIDES.get(fresh["category"], GUIDES["Software Engineer"])
+    deep = DEEP_THEORY.get(fresh["category"], DEEP_THEORY["Software Engineer"])
     output.write_text(
         f"# {fresh['title']}\n\n**Kategori:** {fresh['category']}  \n**Difficulty:** {guide['level']}  \n**Date:** {today}\n\n"
-        f"## Teori: Apa yang Dipelajari?\n\n{guide['theory']}\n\n"
+        f"## Tujuan Belajar\n\n{deep['goals']}\n\n## Prasyarat\n\n{deep['prereq']}\n\n"
+        f"## Teori: Apa yang Dipelajari?\n\n{deep['theory']}\n\n"
         f"## Kenapa Ini Penting?\n\n{guide['why']}\n\n"
         f"## Ringkasan Bacaan Terbaru\n\n{fresh['summary'] or 'Baca sumber asli untuk konteks terbaru.'}\n\n"
-        f"## Contoh Praktik\n\n```text\n{guide['code']}\n```\n\n"
+        f"## Contoh Praktik\n\n```text\n{guide['code']}\n```\n\n{deep['walkthrough']}\n\n"
         f"## Best Practices\n\n{guide['best']}\n\n## Kesalahan Umum\n\n{guide['pitfalls']}\n\n"
         f"## Latihan Mandiri\n\n{guide['exercise']}\n\n## Sumber Belajar\n\n- [Bacaan terbaru dari sumber asli]({fresh['link']})\n",
         encoding="utf-8",
