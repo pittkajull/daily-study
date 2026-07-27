@@ -30,7 +30,7 @@ Materi pendek harian untuk mengenal dunia teknologi dan berbagai jalur karier di
 
 ## Auto Update
 
-[`generate.py`](generate.py) membaca RSS resmi dari sumber teknologi, memilih link yang belum pernah digunakan, lalu membuat file Markdown baru. GitHub Actions menjalankannya setiap hari pukul 19:00 WIB melalui [workflow](.github/workflows/daily-lesson.yml).
+[`generate.py`](generate.py) membaca RSS resmi dari sumber teknologi, memilih link yang belum pernah digunakan, lalu membuat file Markdown baru. GitHub Actions menjalankannya tiga kali sehari pada pukul **08:00, 12:00, dan 19:00 WIB** melalui [workflow](.github/workflows/daily-lesson.yml).
 
 ```text
 RSS resmi -> filter duplikat -> lesson Markdown -> commit -> push
