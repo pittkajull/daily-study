@@ -13,5 +13,6 @@
   "https://pytorch.org/blog/driving-the-future-of-open-source-ai-an-update-from-pytorch-foundation-projects/",
   "https://pytorch.org/blog/helion-on-tpu-towards-hardware-heterogeneous-kernel-authoring/",
   "https://pytorch.org/blog/pytorch-conference-north-america-schedule-is-live/",
-  "https://pytorch.org/blog/pytorch-foundation-flare-pin-community-design-contest/"
+  "https://pytorch.org/blog/pytorch-foundation-flare-pin-community-design-contest/",
+  "https://pytorch.org/blog/triton-plugin-extensions-enabling-tlx-and-custom-compiler-passes-out-of-the-box/"
 ]
