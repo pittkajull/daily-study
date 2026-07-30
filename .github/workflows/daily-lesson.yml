@@ -20,7 +20,7 @@ jobs:
       - name: Commit lesson
         run: |
           git config user.name "${{ github.repository_owner }}"
-          git config user.email "${{ github.repository_owner }}@users.noreply.github.com"
+          git config user.email "muhajirmamrullah1@gmail.com"
           git add lessons .cache
           git diff --cached --quiet || git commit -m "lesson: daily technology brief"
           git push
