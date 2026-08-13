@@ -155,14 +155,23 @@ def main() -> None:
         except Exception as exc:
             print(f"Skipping {url}: {exc}")
 
-    fresh = next((item for item in candidates if item["link"] not in seen), None)
-    if fresh is None:
-        print("No new RSS item found; nothing to publish.")
-        return
-
     today = date.today().isoformat()
     LESSONS.mkdir(exist_ok=True)
     output = LESSONS / f"{today}.md"
+
+    fresh = next((item for item in candidates if item["link"] not in seen), None)
+    if fresh is None:
+        # Keep a daily activity even when feeds are temporarily unavailable.
+        if output.exists():
+            print("No new RSS item found; today's lesson already exists.")
+            return
+        fresh = {
+            "category": "Software Engineer",
+            "title": "Daily study checkpoint",
+            "link": "https://github.com/pittkajull/daily-study",
+            "summary": "Tidak ada artikel RSS baru yang tersedia hari ini. Gunakan checkpoint ini untuk mengulang konsep, membaca dokumentasi resmi, atau mengerjakan latihan kecil.",
+        }
+        print("No fresh RSS item found; publishing a fallback study checkpoint.")
     guide = GUIDES.get(fresh["category"], GUIDES["Software Engineer"])
     deep = DEEP_THEORY.get(fresh["category"], DEEP_THEORY["Software Engineer"])
     practice = PRACTICE.get(fresh["category"], PRACTICE["Software Engineer"])

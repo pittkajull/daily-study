@@ -1,4 +1,4 @@
-﻿name: Publish daily technology brief
+name: Publish daily technology brief
 
 on:
   schedule:
@@ -6,6 +6,10 @@ on:
     - cron: "0 5 * * *"  # 12:00 WIB
     - cron: "0 12 * * *" # 19:00 WIB
   workflow_dispatch:
+
+concurrency:
+  group: daily-study-publisher
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -22,7 +26,11 @@ jobs:
           git config user.name "${{ github.repository_owner }}"
           git config user.email "muhajirmamrullah1@gmail.com"
           git add lessons .cache
-          git diff --cached --quiet || git commit -m "lesson: daily technology brief"
+          if git diff --cached --quiet; then
+            git commit --allow-empty -m "chore: daily study activity"
+          else
+            git commit -m "lesson: daily technology brief"
+          fi
           git push
 
 
