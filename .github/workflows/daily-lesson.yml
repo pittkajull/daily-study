@@ -2,9 +2,7 @@ name: Publish daily technology brief
 
 on:
   schedule:
-    - cron: "0 1 * * *"  # 08:00 WIB
-    - cron: "0 5 * * *"  # 12:00 WIB
-    - cron: "0 12 * * *" # 19:00 WIB
+    - cron: "0 1 */5 * *" # 08:00 WIB, setiap 5 hari pada tanggal 1, 6, 11, dst.
   workflow_dispatch:
 
 concurrency:
