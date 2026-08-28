@@ -68,5 +68,6 @@
   "https://pytorch.org/blog/pytorch-foundation-flare-pin-community-design-contest/",
   "https://pytorch.org/blog/towards-free-normalization-fusing-normalization-into-gemm-and-attention-kernels/",
   "https://pytorch.org/blog/triton-plugin-extensions-enabling-tlx-and-custom-compiler-passes-out-of-the-box/",
-  "https://pytorch.org/blog/understanding-pytorchs-test-infrastructure/"
+  "https://pytorch.org/blog/understanding-pytorchs-test-infrastructure/",
+  "https://pytorch.org/blog/vllm-sessions-at-pytorch-conference-north-america-2026/"
 ]
