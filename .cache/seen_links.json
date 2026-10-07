@@ -116,6 +116,7 @@
   "https://pytorch.org/blog/helion-x-%f0%9f%a4%97-hf-kernels-building-and-shipping-out-of-the-box-performant-kernels/",
   "https://pytorch.org/blog/how-shopify-built-a-continual-learning-loop-with-pytorch-and-vllm/",
   "https://pytorch.org/blog/low-precision-flash-attention-4-end-to-end-block-scaled-attention-for-blackwell/",
+  "https://pytorch.org/blog/modernizing-table-batched-embeddings-with-fbtriton/",
   "https://pytorch.org/blog/new-pathway-to-pytorch-certified-associate-ptca-certification/",
   "https://pytorch.org/blog/open-research-tooling-optimization-at-pytorch-conference-north-america-2026/",
   "https://pytorch.org/blog/optimizing-jagged-flash-attention-with-tlx-the-road-toward-sota-fa4-on-blackwell/",
