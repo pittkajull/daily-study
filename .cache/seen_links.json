@@ -136,6 +136,7 @@
   "https://pytorch.org/blog/pytorch-foundation-flare-pin-community-design-contest/",
   "https://pytorch.org/blog/pytorch-hardware-enablement-updates-from-the-acceleration-integration-working-group/",
   "https://pytorch.org/blog/pytorch-x-hugging-face-in-bengaluru-building-indias-next-generation-of-ml-systems-contributors/",
+  "https://pytorch.org/blog/session-aware-agentic-inference-with-nvidia-dynamo/",
   "https://pytorch.org/blog/tinytorch-dont-just-import-pytorch-build-it/",
   "https://pytorch.org/blog/towards-free-normalization-fusing-normalization-into-gemm-and-attention-kernels/",
   "https://pytorch.org/blog/triton-plugin-extensions-enabling-tlx-and-custom-compiler-passes-out-of-the-box/",
