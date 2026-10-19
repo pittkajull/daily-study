@@ -135,6 +135,7 @@
   "https://pytorch.org/blog/helion-on-tpu-towards-hardware-heterogeneous-kernel-authoring/",
   "https://pytorch.org/blog/helion-x-%f0%9f%a4%97-hf-kernels-building-and-shipping-out-of-the-box-performant-kernels/",
   "https://pytorch.org/blog/how-shopify-built-a-continual-learning-loop-with-pytorch-and-vllm/",
+  "https://pytorch.org/blog/introducing-torchneuron-native-pytorch-backend-for-aws-trainium/",
   "https://pytorch.org/blog/low-precision-flash-attention-4-end-to-end-block-scaled-attention-for-blackwell/",
   "https://pytorch.org/blog/modernizing-table-batched-embeddings-with-fbtriton/",
   "https://pytorch.org/blog/muse-spark-open/",
