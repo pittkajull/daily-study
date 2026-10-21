@@ -165,6 +165,7 @@
   "https://pytorch.org/blog/pytorch-x-hugging-face-in-bengaluru-building-indias-next-generation-of-ml-systems-contributors/",
   "https://pytorch.org/blog/session-aware-agentic-inference-with-nvidia-dynamo/",
   "https://pytorch.org/blog/tinytorch-dont-just-import-pytorch-build-it/",
+  "https://pytorch.org/blog/torchtitan-update-new-sota-models-performance-at-scale-titanrl/",
   "https://pytorch.org/blog/towards-free-normalization-fusing-normalization-into-gemm-and-attention-kernels/",
   "https://pytorch.org/blog/triton-plugin-extensions-enabling-tlx-and-custom-compiler-passes-out-of-the-box/",
   "https://pytorch.org/blog/understanding-pytorchs-test-infrastructure/",
