@@ -170,6 +170,7 @@
   "https://pytorch.org/blog/helion-on-tpu-towards-hardware-heterogeneous-kernel-authoring/",
   "https://pytorch.org/blog/helion-x-%f0%9f%a4%97-hf-kernels-building-and-shipping-out-of-the-box-performant-kernels/",
   "https://pytorch.org/blog/how-shopify-built-a-continual-learning-loop-with-pytorch-and-vllm/",
+  "https://pytorch.org/blog/integrating-sglang-into-spyre-in-under-a-week-with-ai/",
   "https://pytorch.org/blog/introducing-torchneuron-native-pytorch-backend-for-aws-trainium/",
   "https://pytorch.org/blog/introducing-torchtpu/",
   "https://pytorch.org/blog/kvcache-meetup-korea-2026-event-recap/",
